@@ -27,3 +27,20 @@ class BankAccount {
         }
     }
 }
+
+class InvestmentSimulator extends BankAccount {
+    constructor(accountNumber, accountHolder, balance = 0, interestRate = 0.1, months = 1) {
+        //reference the parent constructor
+        super(accountNumber, accountHolder, balance)
+        this.interestRate = interestRate
+        this.months = months
+    }
+
+    calculateRoi() {
+        for (let i= 0; i < this.months; i++) {
+            this.balance += (this.balance * this.interestRate)
+        }
+
+        return this.balance
+    }
+}
