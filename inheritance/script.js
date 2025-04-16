@@ -1,9 +1,11 @@
 class BankAccount {
     constructor(accountNumber, accountHolder, balance = 0) {
-        this.accountNumber = accountNumber
+        this.accountNumber = BankAccount.prefixAccount + accountNumber
         this.accountHolder = accountHolder
         this.balance = Number(balance >= 0 ? balance : 0)
     }
+
+    static prefixAccount = 'C-'
 
     deposit(amount) {
         this.validateAmount(amount)
