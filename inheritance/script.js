@@ -1,3 +1,16 @@
+class Helper {
+    static templateResume(account) {
+        const now = new Date()
+        return `----------------------
+        ---------My Bank -------------
+        Date: ${now}
+        Account Number: ${account.accountNumber}
+        Account Holder: ${account.accountHolder}
+        Balance: ${account.balance}
+        ----------------------`;
+    }
+}
+
 class BankAccount {
     constructor(accountNumber, accountHolder, balance = 0) {
         this.accountNumber = BankAccount.prefixAccount + accountNumber
@@ -27,6 +40,10 @@ class BankAccount {
         if (amount <= 0) {
             throw new Error('Invalid amount')
         }
+    }
+
+    resume() {
+        return Helper.templateResume(this)
     }
 }
 
