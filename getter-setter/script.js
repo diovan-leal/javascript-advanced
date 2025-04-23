@@ -42,3 +42,20 @@ class Circle {
         this.setColor(color)
     }
 }
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName.trim()
+        this.lastName = lastName.trim()
+    }
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+
+    set fullName(fullName) {
+        const [firstName, lastName] = fullName.trim().split(" ")
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+}
